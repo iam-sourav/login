@@ -5,12 +5,14 @@ form.addEventListener("submit", (event) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+            location.replace("welcome.html");
+        })
         .catch((err) => {
             document.getElementById("error").innerHTML = err.message;
-    })
+    }) 
 })
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        location.replace("welcome.html");
     }
 })

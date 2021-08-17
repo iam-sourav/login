@@ -5,33 +5,26 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>signup</title>
-   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="style1.css">
+   <link rel="stylesheet" href="style1.css"> 
 </head>
 <body>
-   <form action="" method="POST" class="contaner">
+   <form  class="contaner" id="post">
       <p class="up">Sign Up</p>
-      <input type="text" spellcheck="false" placeholder="First Name" name="first" class="in1"  required>
-      <input type="text" spellcheck="false" placeholder="Last Name" name="last" class="in2"  required>
-      <input type="username" spellcheck="false" placeholder="Username" name="username" class="in3" required>
-      <input type="password" placeholder="Password" name="password" class="in4" required>
-      <input type="password" placeholder="Confirm Password" name="cpassword" class="in5" required>
-      <button name="submit" class="btn">Create Account</button>
-      <p class="next_page">Have an account? <a href="index.php">Login account</a></p>
+      <input type="text "id="first" spellcheck="false" placeholder="First Name" name="first" class="in1"  required>
+      <input type="text" id="last" spellcheck="false" placeholder="Last Name" name="last" class="in2"  required>
+      <input type="email" id="email" spellcheck="false" placeholder="Email" name="email" class="in3" required>
+      <input type="password" id="password" placeholder="Password" name="password" class="in4" required>
+      <input type="password" id="coPassword" placeholder="Confirm Password" name="copassword" class="in5" required>
+      <button class="btn">Create Account</button>
+      <p class="next_page">Have an account? <a href="index.html">Login account</a></p>
    </form>
-   <script>
-      document.querySelector('.in5').addEventListener("keyup", () => {
-         if(document.querySelector('.in4').value != document.querySelector('.in5').value){
-            document.querySelector('.in5').style.borderColor = '#ff0000';
-         }else{
-            document.querySelector('.in5').style.borderColor = '#00000055';
-         }
-      }) 
-      document.querySelector('.in4').addEventListener("keyup", () => {
-         if(document.querySelector('.in4').value == document.querySelector('.in5').value){
-            document.querySelector('.in5').style.borderColor = '#00000055';
-         }
-      }) 
-   </script>
+   <h1 id="show" style="position: absolute; bottom: 0; color: #fff; margin-bottom: 20px;"></h1>
+
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+<script src="firebase.js"></script>
+<script src="create.js"></script>
 </body>
 </html>
