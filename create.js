@@ -29,7 +29,7 @@ let dataRef = database.ref("users");
 // dataRef.orderByChild("Email").equalTo("souravbarui8040@gmail.com").once("value", snapshot => {
 //   let User = snapshot.val(); 
 //   console.log(User); 
-// })  
+// }) 
 
 
 form.addEventListener("submit", (event) => {
@@ -48,6 +48,7 @@ form.addEventListener("submit", (event) => {
         First_Name: first,
         Last_Name: lsat,
         Email: email,
+        Password: stringTo36(password),
         Last_Login: Date.now(),
       };
       databaseRef.set(userData);
@@ -59,6 +60,28 @@ form.addEventListener("submit", (event) => {
       document.getElementById("show").innerHTML = `${error.message}`;
     });
 });
+
+// decript password
+function stringTo36(val) {
+  return val
+    .split("")
+    .map(function (char) {
+      return char.charCodeAt(0).toString(36);
+    })
+    .join("");
+}
+
+// incript password
+// function to36string(val) {
+//   var hex = val.toString();
+//   var str = "";
+//   for (var n = 0; n < hex.length; n += 2) {
+//     str += String.fromCharCode(parseInt(hex.substr(n, 2), 36));
+//   }
+//   return str;
+// }
+
+
 // firebase.auth().onAuthStateChanged((user) => {
 //   if (user) {
 //     location.replace("index.html");
